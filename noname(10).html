@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+#main{height:100%;width:100%;min-height:1000px;min-width:1000px;}
+body{margin:0px;padding:0px;}
+#form{border:1px solid silver;widths:100%;height:300px;}
+#header{background:#CC3300;width:94%;padding:10px;color:white;
+font-size:35px;font-family:Times;margin:0px;}
+input{height:60px;border:1px solid silver;outline-color:#3366CC;
+width:450px;font-size:35px;text-align:center;font-family:Times;
+margin-top:10px;}
+button{font-family:Times;font-size:35px;margin-top:15px;
+border:0px;background:#CC3300;color:white;height:60px;
+width:200px;border-radius:5px;outline:none;}
+button:active{background:skyblue;color:black;}
+#s1{background:#CC3300;color:white;font-size:35px;font-family:Times;
+margin-top:105px;padding:10px;}
+table{border:1px solid black;text-align:center;font-size:35px;
+font-family:Times;margin-top:20px;width:100%;}
+th{border:1px solid black;background:#CC3300;color:white;width:200px;padding:5px;
+border-right-color:#00FF00;border-right-width:3px;}
+td{border:1px solid black;height:35px;width:200px;}
+</style>
+</head>
+<body>
+<div id="main">
+<div id="form">
+<center>
+<div id="header"><span id="head">Enter Students Details</span></div>
+<br>
+<input id="fname" placeholder="Enter Full Name"><br>
+<input id="add" placeholder="Enter Address"><br>
+<input id="sam" placeholder="Enter Class"><br>
+<button onclick="insertData()">InsertData</button>
+<button onclick="save()">AddData</button>
+<button onclick="remove()">DeleteData</button>
+</center>
+</div>
+<center>
+<div id="s1">
+Students Database</div>
+<hr color="silver" size="1">
+</center>
+<table id="tbl" cellspacing="0"><tr>
+<th>Full Name</th><th>Address</th><th>Class</th></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr><tr>
+<td>Samim Sarkar</td><td>Karanja Bari</td><td>XII</td></tr>
+</table>
+</div>
+<script type="text/javascript">
+var x=1;
+var fname=document.getElementById("fname");
+var add = document.getElementById("add");
+var sam = document.getElementById("sam");
+var rIndex,table=document.getElementById("tbl");
+function selectRow(){
+for(var i=1; i<table.rows.length; i++){
+table.rows[i].onclick=function(){
+rIndex=this.rowIndex;
+fname.value=this.cells[0].innerHTML;
+add.value=this.cells[1].innerHTML;
+sam.value=this.cells[2].innerHTML;
+};}}
+selectRow();
+function save(){
+table.rows[rIndex].cells[0].innerHTML=fname.value;
+table.rows[rIndex].cells[1].innerHTML=add.value;
+table.rows[rIndex].cells[2].innerHTML=sam.value;
+}
+function insertData(){
+if(fname.value=="" || add.valye=="" || sam.value==""){
+alert("Please fill the Details");}
+else{
+var newRow=table.insertRow(x);
+var cel1=newRow.insertCell(0);
+var cel2=newRow.insertCell(1);
+var cel3=newRow.insertCell(2);
+cel1.innerHTML=fname.value;
+cel2.innerHTML=add.value;
+cel3.innerHTML=sam.value;
+x++;}
+}
+function remove(){
+table.deleteRow(rIndex);
+fname.value="";
+add.value="";
+sam.value="";
+}
+</script>
+</body>
+</html>
